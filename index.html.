@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Món quà nhỏ ❤️</title>
+<style>
+*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;padding:20px;font-family:system-ui,"Segoe UI",sans-serif;background:linear-gradient(135deg,#ffe0ec,#fff5f8,#ffd6e7);color:#71364f;overflow-x:hidden}
+.card{width:min(100%,500px);padding:32px 22px;text-align:center;background:#ffffffc9;border-radius:26px;box-shadow:0 15px 50px #d889aa55;backdrop-filter:blur(10px)}
+h1{font-size:30px;color:#df5790;margin:0 0 15px}.subtitle{line-height:1.8;margin-bottom:25px}
+.gift{font-size:100px;border:0;background:none;cursor:pointer;animation:bounce 2s infinite}
+@keyframes bounce{50%{transform:translateY(-12px)}}
+button.action{border:0;padding:13px 23px;border-radius:30px;background:#e85b96;color:white;font-size:16px;cursor:pointer;margin:8px;box-shadow:0 5px 15px #e85b9660}
+.message{display:none;margin-top:25px;line-height:1.9;animation:appear .8s ease}.message h2{color:#df5790}
+@keyframes appear{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.heart{position:fixed;bottom:-35px;pointer-events:none;animation:fly 5s linear forwards;z-index:5}
+@keyframes fly{to{transform:translateY(-110vh) rotate(360deg);opacity:0}}
+.footer{font-size:12px;margin-top:28px;opacity:.6}
+</style>
+</head>
+<body>
+<main class="card">
+<h1>💗 Một món quà nhỏ 💗</h1>
+<p class="subtitle">Có một điều đặc biệt muốn gửi đến bạn.<br>Hãy chạm vào món quà bên dưới nhé!</p>
+<button class="gift" id="gift" aria-label="Mở quà">🎁</button>
+<p>Chạm để mở quà</p>
+<section class="message" id="message">
+<h2>🌸 Gửi đến bạn 🌸</h2>
+<p>Cảm ơn bạn vì đã xuất hiện trong cuộc sống này. Mong rằng mỗi ngày của bạn đều tràn ngập niềm vui, hạnh phúc và những điều tốt đẹp nhất.</p>
+<p>Chúc bạn luôn xinh đẹp, mạnh mẽ, bình an và luôn được yêu thương.</p>
+<h2>❤️ Bạn thật đặc biệt! ❤️</h2>
+</section>
+<button class="action" id="love">💕 Gửi thêm yêu thương</button>
+<p class="footer">Made with love ❤️</p>
+</main>
+<script>
+function hearts(){const symbols=["❤️","💗","💕","💖","🌸","✨"];for(let i=0;i<22;i++){const h=document.createElement("div");h.className="heart";h.textContent=symbols[Math.floor(Math.random()*symbols.length)];h.style.left=Math.random()*100+"vw";h.style.fontSize=(18+Math.random()*22)+"px";h.style.animationDuration=(3+Math.random()*3)+"s";document.body.appendChild(h);setTimeout(()=>h.remove(),6500)}}
+document.getElementById("gift").addEventListener("click",()=>{document.getElementById("message").style.display="block";document.getElementById("gift").textContent="🎀";hearts()});
+document.getElementById("love").addEventListener("click",hearts);
+</script>
+</body>
+</html>
